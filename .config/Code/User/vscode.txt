@@ -1,1 +1,4 @@
 i don't use vscode any more perhaps due to the reason that it FREAKING SUCKS so expect this file to be NEVER UPDATED
+
+but anyways here are my plugins
+Wenyan vscode-pokemon vscode great icons todo tree Texlab tabout squirrelsong light pylance python python debugger prettier path autocomplete ltex+ live server lean 4 latex (workshop utilities snippets) file size even better toml error lens colorbox in the park atom one light
