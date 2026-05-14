@@ -25,7 +25,7 @@ setopt INTERACTIVE_COMMENTS
 export MANPAGER='nvim +Man!'
 export HELPDIR="/usr/share/zsh/5.9/help"
 export HOMEBREW_NO_ENV_HINTS=1
-alias rm='echo "DELETE BLOCKED"'
+alias rm='echo "DELETE BLOCKED"' # I KNOW I KNOW. i just can't stop myself from compulsively deleting everything (i may or may not have OCD) so uh yeah
 alias rmdir='echo "DELETE BLOCKED"'
 alias shred='echo "DELETE BLOCKED"'
 alias tetris=yetris
