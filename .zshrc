@@ -31,8 +31,9 @@ alias snake=nsnake
 alias pacman=myman
 alias vi=nvim
 alias vim=nvim
-alias ez='nvim ~/.zshrc'
-alias sz='source ~/.zshrc'
+alias ez='nvim ~/dotfiles/.zshrc'
+alias sz='source ~/dotfiles/.zshrc'
+alias on='nvim ~/dotfiles/.config/nvim/init.vim'
 alias octave='DYLD_LIBRARY_PATH="/Users/student/Documents/.brew/Cellar/gcc/15.2.0_1/lib/gcc/current" octave --gui'
 alias code="open -a \"Visual Studio Code\" \."
 alias ls=eza
@@ -59,6 +60,16 @@ lf() {
 }
 cf() {
         whence -wm '*' | sed 's/:[^:]*$//' | grep -i "$1" | fzf
+}
+dot() {
+        cd ~/dotfiles
+        brew bundle dump --force --file="packages/brewfile"
+        pip list --not-required --format=freeze > packages/requirements.txt
+        git add .
+        git commit -m "$1"
+        if [[ "${2:-no}" == "yes" ]]; then
+                git push
+        fi
 }
 
 export PATH="$HOME/.pyenv/shims:$PATH"
