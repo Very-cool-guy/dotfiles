@@ -44,6 +44,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'daveyarwood/vim-alda'
 Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
 Plug 'rafamadriz/friendly-snippets'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 " Plug 'Olical/conjure'
 call plug#end()
 
@@ -61,7 +64,7 @@ require('blink.cmp').setup({
     documentation = { auto_show = false }
   },
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
+    default = { 'path', 'snippets', 'buffer' },
   },
   fuzzy = {
     implementation = "prefer_rust_with_warning"
@@ -80,7 +83,22 @@ require('nvim-treesitter.config').setup({
     additional_vim_regex_highlighting = false,
   },
 })
+
+require("mason").setup()
+
+require("mason-lspconfig").setup({
+    ensure_installed = { "pyright" },
+    handlers = {
+        function (server_name)
+            require("lspconfig")[server_name].setup()
+        end,
+    },
+})
+
+vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {})
 EOF
+
 
 colorscheme everforest
 " autocmd VimEnter * Neotree show
