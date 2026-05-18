@@ -63,7 +63,7 @@ cf() {
 }
 dot() {
         cd ~/dotfiles
-        brew bundle dump --force --file="packages/brewfile"
+        brew bundle dump --force --file="packages/brewfile" &>/dev/null
         pip list --not-required --format=freeze > packages/requirements.txt
         git add .
         git commit -m "$1"
