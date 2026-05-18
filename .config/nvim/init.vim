@@ -24,6 +24,7 @@ set expandtab
 
 set backspace=indent,eol,start
 let maplocalleader = ","
+let mapleader = " "
 nmap j gj
 nmap k gk
 inoremap jk <esc>
