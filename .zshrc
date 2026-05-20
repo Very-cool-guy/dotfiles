@@ -65,6 +65,8 @@ dot() {
         cd ~/dotfiles
         brew bundle dump --force --file="packages/brewfile" &>/dev/null
         pip list --not-required --format=freeze > packages/requirements.txt
+        git add packages/brewfile packages/requirements.txt
+        git commit -m "update packages"
         git add .
         git commit -m "$1"
         if [[ "${2:-no}" == "yes" ]]; then
