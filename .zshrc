@@ -91,9 +91,6 @@ source /Users/student/Documents/.brew/share/powerlevel10k/powerlevel10k.zsh-them
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 source $HOME/zsh-autoswitch-virtualenv-master/autoswitch_virtualenv.plugin.zsh
 
 export HISTFILE="$HOME/.zsh_history"
