@@ -59,7 +59,7 @@ lf() {
         ls -la | fzf
 }
 cf() {
-        whence -wm '*' | sed 's/:[^:]*$//' | grep -i "$1" | fzf
+        whence -wm '*' | sed 's/:[^:]*$//' | fzf
 }
 dot() {
         cd ~/dotfiles

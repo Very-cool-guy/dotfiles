@@ -94,3 +94,6 @@ cask "protonvpn", args: { appdir: "~/Applications" }
 cask "racket"
 cask "retroarch"
 cask "vivaldi"
+npm "tldr-lint"
+npm "undollar"
+npm "wipeclean"
