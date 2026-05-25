@@ -52,6 +52,9 @@ ungate() {
 hf() {
         history -n 1 | tac | awk '!x[$0]++' | fzf --no-sort
 }
+hd() {
+        hf | zsh
+}
 bf() {
         brew list | fzf
 }
