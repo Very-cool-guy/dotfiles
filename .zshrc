@@ -1,4 +1,4 @@
-export PATH="$HOME/Documents/.brew/bin:$HOME/Documents/.brew/sbin:$PATH"
+export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
 deltarune_random() {
   local total_lines=$(wc -l < ~/Desktop/temp.txt 2>/dev/null || return)
   [[ $total_lines -lt 3 ]] && return
@@ -64,17 +64,19 @@ lf() {
 cf() {
         whence -wm '*' | sed 's/:[^:]*$//' | fzf
 }
-dot() {
+pac() {
         cd ~/dotfiles
         brew bundle dump --force --file="packages/brewfile" &>/dev/null
         pip list --not-required --format=freeze > packages/requirements.txt
         git add packages/brewfile packages/requirements.txt
-        git commit -m "update packages"
-        git add .
+        git commit -m "${1:-packages}" 
+        git push
+}
+dot() {
+        cd ~/dotfiles
+        git add -- . ':!packages'
         git commit -m "$1"
-        if [[ "${2:-no}" == "yes" ]]; then
-                git push
-        fi
+        git push
 }
 
 export PATH="$HOME/.pyenv/shims:$PATH"
@@ -90,7 +92,7 @@ export PATH="/Users/student/aseprite/build/bin/Aseprite.app/Contents/MacOS:$PATH
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
-source /Users/student/Documents/.brew/share/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[redirection]=fg=cyan
