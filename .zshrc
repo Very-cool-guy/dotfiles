@@ -93,6 +93,7 @@ eval "$(zoxide init zsh)"
 source /Users/student/Documents/.brew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_STYLES[redirection]=fg=cyan
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/zsh-autoswitch-virtualenv-master/autoswitch_virtualenv.plugin.zsh
 

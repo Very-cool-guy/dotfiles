@@ -3,6 +3,8 @@
 title = "👻"
 macos-icon = custom
 macos-custom-icon = ~/Desktop/ghostty.png
+# background-opacity = 0.7
+# background-blur = 35
 font-size = 14
 macos-titlebar-proxy-icon = hidden
 quit-after-last-window-closed = true
