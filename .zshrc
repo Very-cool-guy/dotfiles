@@ -34,7 +34,6 @@ alias vim=nvim
 alias ez='nvim ~/dotfiles/.zshrc'
 alias sz='source ~/dotfiles/.zshrc'
 alias on='nvim ~/dotfiles/.config/nvim/init.vim'
-alias octave='DYLD_LIBRARY_PATH="/Users/student/Documents/.brew/Cellar/gcc/15.2.0_1/lib/gcc/current" octave --gui'
 alias code="open -a \"Visual Studio Code\" \."
 alias ls=eza
 alias cat=bat
