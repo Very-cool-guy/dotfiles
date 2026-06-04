@@ -64,18 +64,20 @@ cf() {
         whence -wm '*' | sed 's/:[^:]*$//' | fzf
 }
 pac() {
-        cd ~/dotfiles
+        pushd ~/dotfiles
         brew bundle dump --force --file="packages/brewfile" &>/dev/null
         pip list --not-required --format=freeze > packages/requirements.txt
         git add packages/brewfile packages/requirements.txt
         git commit -m "${1:-packages}" 
         git push
+        popd
 }
 dot() {
-        cd ~/dotfiles
+        pushd ~/dotfiles
         git add -- . ':!packages'
         git commit -m "$1"
         git push
+        popd
 }
 
 export PATH="$HOME/.pyenv/shims:$PATH"
