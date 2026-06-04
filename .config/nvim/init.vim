@@ -96,6 +96,13 @@ require("mason-lspconfig").setup({
     },
 })
 
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+})
+
 vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {})
 EOF
