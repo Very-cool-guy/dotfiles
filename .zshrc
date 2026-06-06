@@ -1,4 +1,4 @@
-export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 deltarune_random() {
   local total_lines=$(wc -l < ~/Desktop/temp.txt 2>/dev/null || return)
   [[ $total_lines -lt 3 ]] && return

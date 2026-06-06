@@ -48,6 +48,8 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'kylechui/nvim-surround'
+Plug 'karb94/neoscroll.nvim'
 " Plug 'Olical/conjure'
 call plug#end()
 
