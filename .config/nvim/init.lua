@@ -1,3 +1,4 @@
+vim.cmd([[
 set nocompatible
 syntax on
 set encoding=utf-8
@@ -58,8 +59,8 @@ call plug#end()
 set foldmethod=expr
 set foldexpr=v:lua.vim.treesitter.foldexpr()
 set foldlevelstart=99
+]])
 
-lua << EOF
 -- require("noice").setup()
 -- require('lualine').setup()
 
@@ -112,8 +113,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {})
-EOF
 
-
-colorscheme everforest
-" autocmd VimEnter * Neotree show
+vim.cmd("colorscheme everforest")
+-- vim.cmd("autocmd VimEnter * Neotree show")
