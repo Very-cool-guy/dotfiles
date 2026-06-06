@@ -50,6 +50,8 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kylechui/nvim-surround'
 Plug 'karb94/neoscroll.nvim'
+" Plug 'folke/noice.nvim'
+" Plug 'nvim-lualine/lualine.nvim'
 " Plug 'Olical/conjure'
 call plug#end()
 
@@ -58,6 +60,9 @@ set foldexpr=v:lua.vim.treesitter.foldexpr()
 set foldlevelstart=99
 
 lua << EOF
+-- require("noice").setup()
+-- require('lualine').setup()
+
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
   appearance = {
