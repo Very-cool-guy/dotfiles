@@ -28,6 +28,8 @@ let maplocalleader = ","
 let mapleader = " "
 nmap j gj
 nmap k gk
+inoremap <expr> <Down> v:count == 0 ? "\<Cmd>normal! gj\<CR>" : "\<Down>"
+inoremap <expr> <Up>   v:count == 0 ? "\<Cmd>normal! gk\<CR>" : "\<Up>"
 inoremap jk <esc>
 
 set noerrorbells
@@ -62,7 +64,8 @@ set foldlevelstart=99
 ]])
 
 require("noice").setup()
-require('lualine').setup{
+
+require('lualine').setup({
   options = { theme = 'everforest' },
   sections = {
     lualine_a = {''},
@@ -82,7 +85,7 @@ require('lualine').setup{
     lualine_y = {'location'},
     lualine_z = {},
   },
-}
+})
 
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
@@ -132,7 +135,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_document_symbols, {})
+vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { noremap = true, silent = true })
 
 vim.cmd("colorscheme everforest")
 -- vim.cmd("autocmd VimEnter * Neotree show")
