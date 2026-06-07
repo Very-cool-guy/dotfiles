@@ -51,8 +51,8 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kylechui/nvim-surround'
 Plug 'karb94/neoscroll.nvim'
-" Plug 'folke/noice.nvim'
-" Plug 'nvim-lualine/lualine.nvim'
+Plug 'folke/noice.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 " Plug 'Olical/conjure'
 call plug#end()
 
@@ -61,8 +61,28 @@ set foldexpr=v:lua.vim.treesitter.foldexpr()
 set foldlevelstart=99
 ]])
 
--- require("noice").setup()
--- require('lualine').setup()
+require("noice").setup()
+require('lualine').setup{
+  options = { theme = 'everforest' },
+  sections = {
+    lualine_a = {''},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {
+      {
+        require("noice").api.status.command.get,
+        cond = require("noice").api.status.command.has,
+      },
+      {
+        require("noice").api.status.mode.get,
+        cond = require("noice").api.status.mode.has,
+      },
+      'filetype'
+    },
+    lualine_y = {'location'},
+    lualine_z = {},
+  },
+}
 
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
