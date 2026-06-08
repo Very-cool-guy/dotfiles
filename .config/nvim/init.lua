@@ -146,5 +146,7 @@ vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, { noremap = true, si
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { noremap = true, silent = true })
 
+vim.opt.showmode = false
+
 vim.cmd("colorscheme everforest")
 -- vim.cmd("autocmd VimEnter * Neotree show")
