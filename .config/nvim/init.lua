@@ -63,7 +63,13 @@ set foldexpr=v:lua.vim.treesitter.foldexpr()
 set foldlevelstart=99
 ]])
 
-require("noice").setup()
+require("noice").setup({
+  lsp = {
+    progress = {
+      enabled = false,
+    },
+  },
+})
 
 require('lualine').setup({
   options = { theme = 'everforest' },
