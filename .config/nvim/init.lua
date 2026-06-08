@@ -55,6 +55,7 @@ Plug 'kylechui/nvim-surround'
 Plug 'karb94/neoscroll.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+" Plug 'NeogitOrg/neogit'
 " Plug 'Olical/conjure'
 call plug#end()
 
@@ -143,6 +144,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_document_symbols, {})
 vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', ':Neotree toggle<CR>', { desc = 'Toggle Neo-tree' })
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { noremap = true, silent = true })
 
