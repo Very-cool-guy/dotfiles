@@ -109,3 +109,5 @@ setopt INC_APPEND_HISTORY_TIME
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f "/Users/student/.ghcup/env" ] && . "/Users/student/.ghcup/env" # ghcup-env
+
+export PATH="$PATH:/Users/student/roc_nightly-macos_apple_silicon-2026-06-01-b250321"

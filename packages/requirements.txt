@@ -6,10 +6,10 @@ gnureadline==8.3.3
 gutenbergpy==0.3.5
 langdetect==1.0.9
 librosa==0.11.0
-midi==0.2.3
 MIDIUtil==1.2.1
 mir_eval==0.8.2
 music21==9.9.1
+mypy==2.1.0
 nltk==3.9.2
 opencv-python==4.13.0.92
 openpyxl==3.1.5
