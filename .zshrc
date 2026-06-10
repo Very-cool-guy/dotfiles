@@ -80,7 +80,6 @@ dot() {
         popd &>/dev/null
 }
 
-export GPG_TTY=$(tty)
 export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/bin:$PATH"
@@ -112,3 +111,5 @@ setopt INC_APPEND_HISTORY_TIME
 [ -f "/Users/student/.ghcup/env" ] && . "/Users/student/.ghcup/env" # ghcup-env
 
 export PATH="$PATH:/Users/student/roc_nightly-macos_apple_silicon-2026-06-01-b250321"
+
+export GPG_TTY=$(tty)
