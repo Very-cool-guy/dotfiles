@@ -80,6 +80,7 @@ dot() {
         popd &>/dev/null
 }
 
+export GPG_TTY=$(tty)
 export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/bin:$PATH"
