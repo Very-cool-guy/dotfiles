@@ -27,7 +27,6 @@ alias rm='echo "DELETE BLOCKED"'
 alias rmdir='echo "DELETE BLOCKED"'
 alias shred='echo "DELETE BLOCKED"'
 alias tetris=yetris
-alias snake=nsnake
 alias pacman=myman
 alias vi=nvim
 alias vim=nvim
