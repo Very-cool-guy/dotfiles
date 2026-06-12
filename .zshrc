@@ -39,7 +39,6 @@ alias cat=bat
 alias top=htop
 alias find=fd
 alias grep=rg
-alias clean=wipeclean
 alias ..="cd .."
 alias nosleep="sudo pmset -a disablesleep 1"
 alias yessleep="sudo pmset -a disablesleep 0"
