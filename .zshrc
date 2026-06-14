@@ -77,6 +77,16 @@ dot() {
         git push
         popd &>/dev/null
 }
+pim() {
+        if [[ "$PWD" != "$HOME" ]]; then
+                echo nope && return 1
+        fi
+        pip freeze > requirements.txt; pip list --not-required --format=freeze > readablereqs.txt
+        pip uninstall -r requirements.txt -y &>/dev/null
+        nvim readablereqs.txt
+        pip install -r readablereqs.txt &>/dev/null
+        grm requirements.txt readablereqs.txt
+}
 
 export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(rbenv init -)"
