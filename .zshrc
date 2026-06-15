@@ -23,6 +23,7 @@ setopt INTERACTIVE_COMMENTS
 export MANPAGER='nvim +Man!'
 export HELPDIR="/usr/share/zsh/5.9/help"
 export HOMEBREW_NO_ENV_HINTS=1
+export EDITOR=nvim
 alias rm='echo "DELETE BLOCKED"'
 alias rmdir='echo "DELETE BLOCKED"'
 alias shred='echo "DELETE BLOCKED"'
@@ -121,3 +122,4 @@ setopt INC_APPEND_HISTORY_TIME
 export PATH="$PATH:/Users/student/roc_nightly-macos_apple_silicon-2026-06-01-b250321"
 
 export GPG_TTY=$(tty)
+#todo: add git aliases and auto export gpg_tty when commiting
