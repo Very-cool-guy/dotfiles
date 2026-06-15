@@ -8,5 +8,6 @@ pygame==2.6.1
 pyinstaller==6.20.0
 pynput==1.8.2
 questionary==2.1.1
+sherlock-project==0.16.0
 virtualenv==21.4.3
 xonsh==0.23.8
