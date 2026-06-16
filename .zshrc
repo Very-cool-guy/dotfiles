@@ -68,7 +68,7 @@ cf() {
 pac() {
         pushd ~/dotfiles &>/dev/null
         brew bundle dump --force --file="packages/brewfile" &>/dev/null
-        sed '/^#/d' packages/brewfile > packages/brewfile
+        sed -i '' '/^#/d' packages/brewfile
         pip list --not-required --format=freeze > packages/requirements.txt
         git add packages/brewfile packages/requirements.txt
         gmm
