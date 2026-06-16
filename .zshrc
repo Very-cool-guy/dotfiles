@@ -44,6 +44,9 @@ alias ..="cd .."
 alias nosleep="sudo pmset -a disablesleep 1"
 alias yessleep="sudo pmset -a disablesleep 0"
 alias ":q!"=exit
+alias gm="export GPG_TTY=$(tty) && git commit -m $1"
+alias gmm="export GPG_TTY=$(tty) && git commit"
+alias ga="git add ."
 ungate() {
         sudo codesign --force --deep --sign - "$1" && sudo xattr -cr "$1"
 }
@@ -65,16 +68,17 @@ cf() {
 pac() {
         pushd ~/dotfiles &>/dev/null
         brew bundle dump --force --file="packages/brewfile" &>/dev/null
+        sed '/^#/d' packages/brewfile > packages/brewfile
         pip list --not-required --format=freeze > packages/requirements.txt
         git add packages/brewfile packages/requirements.txt
-        git commit -m "${1:-packages}" 
+        gmm
         git push
         popd &>/dev/null
 }
 dot() {
         pushd ~/dotfiles &>/dev/null
         git add -- . ':!packages'
-        git commit -m "$1"
+        gmm
         git push
         popd &>/dev/null
 }
@@ -120,6 +124,3 @@ setopt INC_APPEND_HISTORY_TIME
 [ -f "/Users/student/.ghcup/env" ] && . "/Users/student/.ghcup/env" # ghcup-env
 
 export PATH="$PATH:/Users/student/roc_nightly-macos_apple_silicon-2026-06-01-b250321"
-
-export GPG_TTY=$(tty)
-#todo: add git aliases and auto export gpg_tty when commiting
