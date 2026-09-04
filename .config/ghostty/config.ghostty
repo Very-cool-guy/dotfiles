@@ -46,5 +46,5 @@ palette = 13=#fe85d8
 palette = 14=#2d9fa8
 palette = 15=#bcc0cc
 
-custom-shader = "/Users/student/Downloads/ripple_cursor.glsl"
-custom-shader = "/Users/student/Downloads/cursor_warp.glsl"
+custom-shader = ~/Downloads/ripple_cursor.glsl
+custom-shader = ~/Downloads/cursor_warp.glsl

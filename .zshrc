@@ -29,8 +29,6 @@ alias shred='echo "DELETE BLOCKED"'
 alias tetris=yetris
 alias pacman=myman
 alias py=python
-alias vi=nvim
-alias vim=nvim
 alias ez='nvim ~/dotfiles/.zshrc'
 alias sz='source ~/dotfiles/.zshrc'
 alias on='nvim ~/dotfiles/.config/nvim/init.lua'
@@ -47,17 +45,15 @@ alias ":q!"=exit
 alias gm="git commit -m $1"
 alias gmm="git commit"
 alias ga="git add ."
+alias puninstall=pip3-autoremove
 alias dih="$HOME/dih/main.py"
-alias fact="/Users/student/factor/factor"
-alias gfact="/Users/student/factor/Factor.app/Contents/MacOS/factor"
+alias fact="$HOME/factor/factor"
+alias gfact="$HOME/factor/Factor.app/Contents/MacOS/factor"
 ungate() {
         sudo codesign --force --deep --sign - "$1" && sudo xattr -cr "$1"
 }
 hf() {
         history -n 1 | tac | awk '!x[$0]++' | fzf --no-sort
-}
-hd() {
-        hf | zsh
 }
 bf() {
         brew list | fzf
@@ -84,16 +80,6 @@ dots() {
         gmm
         git push
         popd &>/dev/null
-}
-pim() {
-        if [[ "$PWD" != "$HOME" ]]; then
-                echo nope && return 1
-        fi
-        pip freeze > requirements.txt; pip list --not-required --format=freeze > readablereqs.txt
-        pip uninstall -r requirements.txt -y &>/dev/null
-        nvim readablereqs.txt
-        pip install -r readablereqs.txt &>/dev/null
-        grm requirements.txt readablereqs.txt
 }
 tt() {
         if [[ -n "$(git status --porcelain)" ]]; then
@@ -129,8 +115,8 @@ export PATH="$HOME/Applications/alda:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
-export PATH="/Users/student/.local/bin:$PATH"
-export PATH="/Users/student/aseprite/build/bin/Aseprite.app/Contents/MacOS:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/aseprite/build/bin/Aseprite.app/Contents/MacOS:$PATH"
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
@@ -149,6 +135,6 @@ setopt INC_APPEND_HISTORY_TIME
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f "/Users/student/.ghcup/env" ] && . "/Users/student/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
 
-export PATH="$PATH:/Users/student/roc_nightly-macos_apple_silicon-2026-06-01-b250321"
+export PATH="$PATH:$HOME/roc_nightly-macos_apple_silicon-2026-08-23-fb208ba"
