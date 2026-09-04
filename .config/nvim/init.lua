@@ -38,6 +38,7 @@ set novisualbell
 call plug#begin()
 Plug 'sainnhe/everforest'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'rcarriga/nvim-notify'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
@@ -55,6 +56,7 @@ Plug 'kylechui/nvim-surround'
 Plug 'karb94/neoscroll.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'Julian/lean.nvim'
 " Plug 'NeogitOrg/neogit'
 " Plug 'Olical/conjure'
 call plug#end()

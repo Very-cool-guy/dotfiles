@@ -9,7 +9,7 @@ deltarune_random() {
     echo ""
   done
 }
-deltarune_random | cowsay | lolcat
+deltarune_random | cowsay
 read
 clear
 
@@ -25,10 +25,10 @@ export HELPDIR="/usr/share/zsh/5.9/help"
 export HOMEBREW_NO_ENV_HINTS=1
 export EDITOR=nvim
 alias rm='echo "DELETE BLOCKED"'
-alias rmdir='echo "DELETE BLOCKED"'
 alias shred='echo "DELETE BLOCKED"'
 alias tetris=yetris
 alias pacman=myman
+alias py=python
 alias vi=nvim
 alias vim=nvim
 alias ez='nvim ~/dotfiles/.zshrc'
@@ -44,9 +44,12 @@ alias ..="cd .."
 alias nosleep="sudo pmset -a disablesleep 1"
 alias yessleep="sudo pmset -a disablesleep 0"
 alias ":q!"=exit
-alias gm="export GPG_TTY=$(tty) && git commit -m $1"
-alias gmm="export GPG_TTY=$(tty) && git commit"
+alias gm="git commit -m $1"
+alias gmm="git commit"
 alias ga="git add ."
+alias dih="$HOME/dih/main.py"
+alias fact="/Users/student/factor/factor"
+alias gfact="/Users/student/factor/Factor.app/Contents/MacOS/factor"
 ungate() {
         sudo codesign --force --deep --sign - "$1" && sudo xattr -cr "$1"
 }
@@ -75,7 +78,7 @@ pac() {
         git push
         popd &>/dev/null
 }
-dot() {
+dots() {
         pushd ~/dotfiles &>/dev/null
         git add -- . ':!packages'
         gmm
@@ -91,6 +94,31 @@ pim() {
         nvim readablereqs.txt
         pip install -r readablereqs.txt &>/dev/null
         grm requirements.txt readablereqs.txt
+}
+tt() {
+        if [[ -n "$(git status --porcelain)" ]]; then
+                echo no
+                exit 1
+        fi
+        git checkout test
+        git merge master --no-edit
+        tree-sitter generate
+        for file in examples/*; do
+                tree-sitter highlight "$file"
+        done
+        git add .
+        git commit -m "Beep boop i am an automated commit."
+        git checkout master
+        git reset --hard HEAD
+}
+music() {
+        cd ~/tobymusic
+        files=( **/*.mp3 )
+        while true; do
+                random_file="${files[RANDOM % ${#files[@]}]}"
+                echo "$random_file"
+                afplay "$random_file"
+        done
 }
 
 export PATH="$HOME/.pyenv/shims:$PATH"
