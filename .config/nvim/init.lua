@@ -36,7 +36,10 @@ set noerrorbells
 set novisualbell
 
 call plug#begin()
-Plug 'sainnhe/everforest'
+Plug 'sainnhe/everforest' "darn it
+Plug 'sainnhe/edge'
+Plug 'catppuccin/nvim'
+
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'rcarriga/nvim-notify'
 Plug 'MunifTanjim/nui.nvim'
@@ -66,6 +69,13 @@ set foldexpr=v:lua.vim.treesitter.foldexpr()
 set foldlevelstart=99
 ]])
 
+local themes = { "everforest", "catppuccin-latte", "edge" }
+local utc_time = os.time(os.date("!*t"))
+local hk_time = utc_time + 28800
+local hk_date = tonumber(os.date("!%Y%m%d", hk_time))
+math.randomseed(hk_date)
+local todays_theme = themes[math.random(#themes)]
+
 require("noice").setup({
   lsp = {
     progress = {
@@ -75,7 +85,7 @@ require("noice").setup({
 })
 
 require('lualine').setup({
-  options = { theme = 'everforest' },
+  options = { theme = todays_theme },
   sections = {
     lualine_a = {''},
     lualine_b = {'branch', 'diff', 'diagnostics'},
@@ -136,13 +146,6 @@ require("mason-lspconfig").setup({
     },
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
-})
-
 vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_document_symbols, {})
 vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, { noremap = true, silent = true })
@@ -152,5 +155,5 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { noremap = true, silen
 
 vim.opt.showmode = false
 
-vim.cmd("colorscheme everforest")
+vim.cmd.colorscheme(todays_theme)
 -- vim.cmd("autocmd VimEnter * Neotree show")
