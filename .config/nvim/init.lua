@@ -1,42 +1,27 @@
-vim.cmd([[
-set nocompatible
-syntax on
-set encoding=utf-8
-filetype plugin on
+vim.opt.showmatch = true
+vim.opt.ignorecase = true
 
-set showmatch
+vim.opt.linebreak = true
+vim.opt.scrolloff = 1
+vim.opt.sidescrolloff = 5
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
-set linebreak
-set scrolloff=1
-set sidescrolloff=5
+vim.opt.smartindent = true
+vim.opt.expandtab = true
 
-set nonumber
-set relativenumber
-set cursorline
+vim.g.maplocalleader = ","
+vim.g.mapleader = " "
+vim.keymap.set("n", "j", "gj", { remap = true })
+vim.keymap.set("n", "k", "gk", { remap = true })
+vim.keymap.set({"n","i"}, "<Down>", "<Cmd>normal! gj<CR>")
+vim.keymap.set({"n","i"}, "<Up>",   "<Cmd>normal! gk<CR>")
 
-set hlsearch
-set incsearch
-set ignorecase
-nnoremap <CR> :noh<CR><CR>:<backspace>
+vim.opt.errorbells = false
 
-set smartindent
-set autoindent
-set expandtab
-
-set backspace=indent,eol,start
-let maplocalleader = ","
-let mapleader = " "
-nmap j gj
-nmap k gk
-inoremap <expr> <Down> v:count == 0 ? "\<Cmd>normal! gj\<CR>" : "\<Down>"
-inoremap <expr> <Up>   v:count == 0 ? "\<Cmd>normal! gk\<CR>" : "\<Up>"
-inoremap jk <esc>
-
-set noerrorbells
-set novisualbell
-
-call plug#begin()
-Plug 'sainnhe/everforest' "darn it
+local Plug = vim.fn['plug#']
+vim.fn['plug#begin']()
+Plug 'sainnhe/everforest' -- cant pick one
 Plug 'sainnhe/edge'
 Plug 'catppuccin/nvim'
 
@@ -47,10 +32,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'daveyarwood/vim-alda'
-Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
+Plug 'saghen/blink.cmp'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -60,14 +44,13 @@ Plug 'karb94/neoscroll.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'Julian/lean.nvim'
-" Plug 'NeogitOrg/neogit'
-" Plug 'Olical/conjure'
-call plug#end()
+-- Plug 'NeogitOrg/neogit'
+-- Plug 'Olical/conjure'
+vim.fn['plug#end']()
 
-set foldmethod=expr
-set foldexpr=v:lua.vim.treesitter.foldexpr()
-set foldlevelstart=99
-]])
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevelstart = 99
 
 local themes = { "everforest", "catppuccin-latte", "edge" }
 local utc_time = os.time(os.date("!*t"))
@@ -107,28 +90,12 @@ require('lualine').setup({
 })
 
 require('blink.cmp').setup({
-  keymap = { preset = 'default' },
-  appearance = {
-    nerd_font_variant = 'mono'
-  },
-  completion = {
-    documentation = { auto_show = false }
-  },
   sources = {
     default = { 'path', 'snippets', 'buffer' },
   },
-  fuzzy = {
-    implementation = "prefer_rust_with_warning"
-  }
 })
 
-require('nvim-treesitter.config').setup({
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "javascript" },
-
-  sync_install = false,
-
-  auto_install = true,
-
+require('nvim-treesitter.config').setup({ -- i installed every parser
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
