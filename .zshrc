@@ -20,6 +20,8 @@ fi
 unalias run-help 2>/dev/null
 autoload run-help
 setopt INTERACTIVE_COMMENTS 
+setopt auto_cd
+setopt nobeep
 export MANPAGER='nvim +Man!'
 export HELPDIR="/usr/share/zsh/5.9/help"
 export HOMEBREW_NO_ENV_HINTS=1
@@ -38,7 +40,6 @@ alias cat=bat
 alias top=htop
 alias find=fd
 alias grep=rg
-alias ..="cd .."
 alias nosleep="sudo pmset -a disablesleep 1"
 alias yessleep="sudo pmset -a disablesleep 0"
 alias ":q!"=exit

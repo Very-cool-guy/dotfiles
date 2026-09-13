@@ -44,6 +44,9 @@ Plug 'karb94/neoscroll.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'Julian/lean.nvim'
+Plug '3rd/image.nvim'
+Plug 'sahaj-b/brainrot.nvim' -- peak
+Plug 'tpope/vim-endwise' -- the nvim version doesnt work
 -- Plug 'NeogitOrg/neogit'
 -- Plug 'Olical/conjure'
 vim.fn['plug#end']()
@@ -57,6 +60,7 @@ local utc_time = os.time(os.date("!*t"))
 local hk_time = utc_time + 28800
 local hk_date = tonumber(os.date("!%Y%m%d", hk_time))
 math.randomseed(hk_date)
+for _ = 1, 12 do math.random() end -- the prng sucks
 local todays_theme = themes[math.random(#themes)]
 
 require("noice").setup({
@@ -112,6 +116,9 @@ require("mason-lspconfig").setup({
         end,
     },
 })
+
+require('image').setup()
+require('brainrot').setup()
 
 vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_document_symbols, {})
