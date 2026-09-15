@@ -63,7 +63,9 @@ lf() {
         ls -la | fzf
 }
 cf() {
-        whence -wm '*' | sed 's/:[^:]*$//' | fzf
+        export MANPAGER="bat -plman --theme=light --color=always"
+        whence -wm '*' | sed 's/:[^:]*$//' | grep -v "^_" | fzf --preview "tldr {} --color=always 2>/dev/null || man {} 2>/dev/null || which {}"
+        export MANPAGER="nvim"
 }
 pac() {
         pushd ~/dotfiles &>/dev/null
