@@ -10,5 +10,7 @@ pyinstaller==6.20.0
 pynput==1.8.2
 PyQt6==6.11.0
 questionary==2.1.1
+tree-sitter==0.26.0
+tree-sitter-dih==0.0.1
 virtualenv==21.4.3
 xonsh==0.23.8
