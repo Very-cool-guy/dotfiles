@@ -50,6 +50,7 @@ alias puninstall=pip3-autoremove
 alias dih="$HOME/dih/main.py"
 alias fact="$HOME/factor/factor"
 alias gfact="$HOME/factor/Factor.app/Contents/MacOS/factor"
+alias clj="cd $HOME/dummy_project/; lein repl"
 ungate() {
         sudo codesign --force --deep --sign - "$1" && sudo xattr -cr "$1"
 }
@@ -110,6 +111,11 @@ music() {
         done
 }
 
+bad_repls=("sbcl" "io")
+for i in ${bad_repls[@]}; do
+        alias $i="rlwrap $i"
+done
+
 export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/bin:$PATH"
@@ -138,6 +144,6 @@ setopt INC_APPEND_HISTORY_TIME
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
-
 export PATH="$PATH:$HOME/roc_nightly-macos_apple_silicon-2026-08-23-fb208ba"
+
+[ -f "/Users/coolguy/.ghcup/env" ] && . "/Users/coolguy/.ghcup/env" # ghcup-env

@@ -34,7 +34,6 @@ Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'daveyarwood/vim-alda'
-Plug 'saghen/blink.cmp'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -47,6 +46,7 @@ Plug 'Julian/lean.nvim'
 Plug '3rd/image.nvim'
 Plug 'sahaj-b/brainrot.nvim' -- peak
 Plug 'tpope/vim-endwise' -- the nvim version doesnt work
+Plug('saghen/blink.cmp', { branch = 'v1' })
 -- Plug 'NeogitOrg/neogit'
 -- Plug 'Olical/conjure'
 vim.fn['plug#end']()
@@ -119,6 +119,8 @@ require("mason-lspconfig").setup({
 
 require('image').setup()
 require('brainrot').setup()
+
+vim.keymap.set('c', 'Q!', 'q!') -- i keep accidentally doing this!!!
 
 vim.keymap.set('n', 'K', '<CMD>normal! K<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_document_symbols, {})
