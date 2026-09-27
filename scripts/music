@@ -19,8 +19,9 @@ while true; do
         echo "$song"
 
         while kill -0 "$afplay_job" 2>/dev/null; do
-                read -s -k 1 "REPLY?"
-                case "$REPLY" in
+                KEY=""
+                read -s -t 0.1 -k 1 KEY
+                case "$KEY" in
                         "-")
                                 kill "$afplay_job"
                                 break
