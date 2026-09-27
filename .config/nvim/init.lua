@@ -132,4 +132,3 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { noremap = true, silen
 vim.opt.showmode = false
 
 vim.cmd.colorscheme(todays_theme)
--- vim.cmd("autocmd VimEnter * Neotree show")

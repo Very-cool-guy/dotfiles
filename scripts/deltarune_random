@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+local total_lines=$(wc -l < ~/Documents/deltarune.txt 2>/dev/null || return)
+local start_line=$((RANDOM % ($total_lines - 5)))
+local end_line=$((start_line + 5))
+
+sed -n "$(printf '%d,%dp\n' $start_line $end_line)" ~/Documents/deltarune.txt | while IFS= read -r line; do
+        echo "$line"
+        echo ""
+done

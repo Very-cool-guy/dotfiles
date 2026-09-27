@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+if [[ -n "$(git status --porcelain)" ]]; then
+        echo no
+        exit 1
+fi
+git checkout test
+git merge master --no-edit
+tree-sitter generate
+for file in examples/*; do
+        tree-sitter highlight "$file"
+done
+git add .
+git commit -m "Beep boop i am an automated commit."
+git checkout master
+git reset --hard HEAD

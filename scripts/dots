@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+pushd ~/dotfiles &>/dev/null
+git add -- . ':!packages'
+git commit
+git push
+popd &>/dev/null

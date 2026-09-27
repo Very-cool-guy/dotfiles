@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+trap 'killall afplay; exit' INT
+
+cd ~/tobymusic
+files=( **/*.mp3 )
+
+same_song=0 # length of queue
+
+while true; do
+        if [[ "$same_song" -eq 0 ]]; then
+                song="${files[RANDOM % ${#files[@]}]}"
+        else
+                same_song=$((same_song - 1)) # falls back to song selected last loop
+        fi
+
+        afplay "$song" &
+        afplay_job=$!
+        echo "$song"
+
+        while kill -0 "$afplay_job" 2>/dev/null; do
+                read -s -k 1 "REPLY?"
+                case "$REPLY" in
+                        "-")
+                                kill "$afplay_job"
+                                break
+                                ;;
+                        "+")
+                                same_song=$((same_song + 1))
+                                ;;
+                esac
+        done
+done

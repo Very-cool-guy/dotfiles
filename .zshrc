@@ -1,14 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-deltarune_random() {
-  local total_lines=$(wc -l < ~/Desktop/temp.txt 2>/dev/null || return)
-  [[ $total_lines -lt 3 ]] && return
-  local start_line=$((RANDOM % ($total_lines - 5)))
-  local end_line=$((start_line + 5))
-  sed -n "$(printf '%d,%dp\n' $start_line $end_line)" ~/Desktop/temp.txt | while IFS= read -r line; do
-    echo "$line"
-    echo ""
-  done
-}
+export PATH="$HOME/dotfiles/scripts:$PATH"
+
 deltarune_random | cowsay
 read
 clear
@@ -19,13 +11,16 @@ fi
 
 unalias run-help 2>/dev/null
 autoload run-help
+
 setopt INTERACTIVE_COMMENTS 
 setopt auto_cd
 setopt nobeep
+
 export MANPAGER='nvim +Man!'
 export HELPDIR="/usr/share/zsh/5.9/help"
 export HOMEBREW_NO_ENV_HINTS=1
 export EDITOR=nvim
+
 alias rm='echo "DELETE BLOCKED"'
 alias shred='echo "DELETE BLOCKED"'
 alias tetris=yetris
@@ -43,14 +38,12 @@ alias grep=rg
 alias nosleep="sudo pmset -a disablesleep 1"
 alias yessleep="sudo pmset -a disablesleep 0"
 alias ":q!"=exit
-alias gm="git commit -m $1"
-alias gmm="git commit"
-alias ga="git add ."
 alias puninstall=pip3-autoremove
 alias dih="$HOME/dih/main.py"
 alias fact="$HOME/factor/factor"
 alias gfact="$HOME/factor/Factor.app/Contents/MacOS/factor"
 alias clj="cd $HOME/dummy_project/; lein repl"
+
 ungate() {
         sudo codesign --force --deep --sign - "$1" && sudo xattr -cr "$1"
 }
@@ -67,48 +60,6 @@ cf() {
         export MANPAGER="bat -plman --theme=light --color=always"
         whence -wm '*' | sed 's/:[^:]*$//' | grep -v "^_" | fzf --preview "tldr {} --color=always 2>/dev/null || man {} 2>/dev/null || which {}"
         export MANPAGER="nvim"
-}
-pac() {
-        pushd ~/dotfiles &>/dev/null
-        brew bundle dump --force --file="packages/brewfile" &>/dev/null
-        sed -i '' '/^#/d' packages/brewfile
-        pip list --not-required --format=freeze > packages/requirements.txt
-        git add packages/brewfile packages/requirements.txt
-        gmm
-        git push
-        popd &>/dev/null
-}
-dots() {
-        pushd ~/dotfiles &>/dev/null
-        git add -- . ':!packages'
-        gmm
-        git push
-        popd &>/dev/null
-}
-tt() {
-        if [[ -n "$(git status --porcelain)" ]]; then
-                echo no
-                exit 1
-        fi
-        git checkout test
-        git merge master --no-edit
-        tree-sitter generate
-        for file in examples/*; do
-                tree-sitter highlight "$file"
-        done
-        git add .
-        git commit -m "Beep boop i am an automated commit."
-        git checkout master
-        git reset --hard HEAD
-}
-music() {
-        cd ~/tobymusic
-        files=( **/*.mp3 )
-        while true; do
-                random_file="${files[RANDOM % ${#files[@]}]}"
-                echo "$random_file"
-                afplay "$random_file"
-        done
 }
 
 bad_repls=("sbcl" "io")
