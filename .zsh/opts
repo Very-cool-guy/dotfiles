@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+unalias run-help 2>/dev/null
+autoload run-help
+
+setopt INTERACTIVE_COMMENTS 
+setopt auto_cd
+setopt nobeep
+
+export MANPAGER='nvim +Man!'
+export HELPDIR="/usr/share/zsh/5.9/help"
+export HOMEBREW_NO_ENV_HINTS=1
+export EDITOR=nvim
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY_TIME

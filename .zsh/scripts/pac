@@ -3,8 +3,8 @@
 pushd ~/dotfiles &>/dev/null
 brew bundle dump --force --file="packages/brewfile" &>/dev/null
 sed -i '' '/^#/d' packages/brewfile
-pip list --not-required --format=freeze > packages/requirements.txt
-git add packages/brewfile packages/requirements.txt
+ls $(uv tool dir) > packages/pytools.txt
+git add packages/brewfile packages/pytools.txt
 git commit
 git push
 popd &>/dev/null

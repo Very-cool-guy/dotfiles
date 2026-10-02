@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export path=(
+    "$HOME/dotfiles/.zsh/scripts"
+    "$HOME/.texlive/2025/bin/universal-darwin"
+    "$HOME/Applications/alda"
+    "/opt/homebrew/opt/openjdk@21/bin"
+    "$HOME/.local/bin"
+    "$HOME/aseprite/build/bin/Aseprite.app/Contents/MacOS"
+    "$HOME/go/bin"
+    "$HOME/roc_nightly-macos_apple_silicon-2026-08-23-fb208ba"
+    $path
+)
+
+source ~/dotfiles/.zsh/startup # has to access scripts and brew, not very clean >:[
+
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+
+eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
+
+eval "$(rbenv init -)"
+[ -f "/Users/coolguy/.ghcup/env" ] && . "/Users/coolguy/.ghcup/env"
+
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_HIGHLIGHT_STYLES[redirection]=fg=cyan
