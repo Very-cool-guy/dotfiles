@@ -1,0 +1,5 @@
+coconut
+hy
+pyinstaller
+ruff
+xonsh
