@@ -42,7 +42,7 @@ return {
                 },
                 lualine_y = {'location'},
                 lualine_z = {},
-            },
+            }
         }
     }
 }
