@@ -1,7 +1,13 @@
 #!/usr/bin/env zsh
 
 pushd ~/dotfiles &>/dev/null
-git add -- . ':!packages'
+
+brew bundle dump --force --file="packages/brewfile" &>/dev/null
+sed -i '' '/^#/d' packages/brewfile
+ls $(uv tool dir) > packages/pytools.txt
+
+git add .
 git commit
 git push
+
 popd &>/dev/null
