@@ -18,3 +18,5 @@ Map('n', '<leader>bb', ':rightbelow new<CR>')
 Map('n', '<leader>bc', '<C-w>w')
 
 Map('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
+
+Map('n', 'U', '<C-r>')

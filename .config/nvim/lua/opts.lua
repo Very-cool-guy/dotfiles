@@ -13,6 +13,8 @@ vim.opt.expandtab = true
 vim.g.maplocalleader = ","
 vim.g.mapleader = " "
 
+vim.opt.guicursor:append("ci:block") -- makes the cursor shape not change in command mode
+
 vim.opt.errorbells = false
 
 vim.opt.foldmethod = "expr"
