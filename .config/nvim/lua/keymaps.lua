@@ -13,9 +13,9 @@ end)
 Map('n', '<leader>e', vim.diagnostic.open_float)
 Map('n', '<leader>t', ':Neotree toggle<CR>')
 
-Map('n', '<leader>bn', ':rightbelow vnew<CR>')
-Map('n', '<leader>bb', ':rightbelow new<CR>')
-Map('n', '<leader>bc', '<C-w>w')
+Map('n', '<leader>n', ':rightbelow vnew<CR>')
+Map('n', '<leader>b', ':rightbelow new<CR>')
+Map('n', '<leader>c', '<C-w>w')
 
 Map('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
 
