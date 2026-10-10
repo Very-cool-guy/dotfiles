@@ -13,5 +13,5 @@ return {
     },
 
     'jiangmiao/auto-pairs',
-    'tpope/vim-endwise'
+    'tpope/vim-endwise' -- the nvim version doesnt work
 }

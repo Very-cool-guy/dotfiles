@@ -15,13 +15,14 @@ yes my dotfiles have a roadmap. no there is nothing you can do about it.
 - [ ] gitsigns or similar?
 - [ ] markdown preview: browser or in-buffer?
 - [ ] new object plugins - indent-object? mini.ai?
-- [ ] customise color scheme, maybe even fork edge and add catppuccin-latte styles.
-- [ ] line wrapping - yay or nay?
+- [ ] customise color scheme, maybe even fork latte and add edge stuff.
+- [ ] line wrapping - yay or nay? breakindent? wrapped block highlight, traverse?
 - [ ] auto pairs - yay or nay?
 - [ ] make some notifications not pass through the noice ui
 - [ ] lisp-specific editing stuff (paraedit/SLIME functionality); clojure highlighting is weird and laggy.
 - [ ] tabular?
 - [ ] lualine rendering of partial keystrokes through noice api: displays in chunks, doesnt disappear after a while
+- [ ] disable smear when fast moving? idk.
 
 # shell/terminal
 - [ ] vim line-editing?
@@ -31,6 +32,7 @@ yes my dotfiles have a roadmap. no there is nothing you can do about it.
 - [ ] oh-my-posh?
 - [ ] write hooks and widgets?
 - [ ] make title bar display current process or nah.
-- [ ] auto activate venv (zsh-autoswitch-virtualenv for uv; do i even need to change it?)
+- [x] auto activate venv (zsh-autoswitch-virtualenv for uv; do i even need to change it?)
 - [ ] see all zmodload/autoload stuff.
 - [ ] setopts
+- [ ] add the external stuff to enhance reproducibility; move p10k config to dots.
