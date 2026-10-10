@@ -21,5 +21,3 @@ vim.opt.errorbells = false
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevelstart = 99
-
-vim.opt.showmode = false
