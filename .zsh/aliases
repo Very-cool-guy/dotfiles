@@ -5,7 +5,6 @@ alias shred='echo "DELETE BLOCKED"'
 alias tetris=yetris
 alias pacman=myman
 alias py='python -q'
-alias av='source .venv/bin/activate'
 alias ez='nvim ~/dotfiles/.zsh'
 alias sz='source ~/dotfiles/.zshrc'
 alias on='nvim ~/dotfiles/.config/nvim'

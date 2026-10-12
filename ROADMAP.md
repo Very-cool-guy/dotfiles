@@ -15,7 +15,7 @@ yes my dotfiles have a roadmap. no there is nothing you can do about it.
 - [ ] gitsigns or similar?
 - [ ] markdown preview: browser or in-buffer?
 - [ ] new object plugins - indent-object? mini.ai?
-- [ ] customise color scheme, maybe even fork latte and add edge stuff.
+- [ ] customise color scheme, maybe even fork latte and add edge stuff. go through them again arghhhhh.
 - [ ] line wrapping - yay or nay? breakindent? wrapped block highlight, traverse?
 - [ ] auto pairs - yay or nay?
 - [ ] make some notifications not pass through the noice ui
@@ -23,6 +23,7 @@ yes my dotfiles have a roadmap. no there is nothing you can do about it.
 - [ ] tabular?
 - [ ] lualine rendering of partial keystrokes through noice api: displays in chunks, doesnt disappear after a while
 - [ ] disable smear when fast moving? idk.
+- [ ] just you know, read dots and awesome lists and vids and threads and blogs and stuff.
 
 # shell/terminal
 - [ ] vim line-editing?
