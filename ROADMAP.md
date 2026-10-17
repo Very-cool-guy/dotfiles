@@ -3,7 +3,7 @@ yes my dotfiles have a roadmap. no there is nothing you can do about it.
 # nvim
 - [ ] change ui provider and text provider of auto documentation and completion. do i want to source from lsp? which kinds of auto documentation do i want?
 - [ ] look over mini.* plugins
-- [ ] look over snacks.{dashboard, debug, dim, lazy, git, picker, terminal, explorer, scratch} plugins
+- [ ] look over snacks.{dashboard, debug, dim, lazy, git, picker, explorer, scratch} plugins
 - [ ] or do i need alternative...
     - [ ] picker
     - [ ] debugger
@@ -26,14 +26,14 @@ yes my dotfiles have a roadmap. no there is nothing you can do about it.
 - [ ] just you know, read dots and awesome lists and vids and threads and blogs and stuff.
 
 # shell/terminal
-- [ ] vim line-editing?
+- [x] vim line-editing?
 - [ ] suffix aliases?
 - [ ] disable some ligatures; alternative fonts patched for p10k?
 - [ ] transparency?
 - [ ] oh-my-posh?
 - [ ] write hooks and widgets?
 - [ ] make title bar display current process or nah.
-- [x] auto activate venv (zsh-autoswitch-virtualenv for uv; do i even need to change it?)
+- [ ] auto activate venv (zsh-autoswitch-virtualenv for uv; do i even need to change it?) not make it print annoying stuff; is this good?
 - [ ] see all zmodload/autoload stuff.
 - [ ] setopts
 - [ ] add the external stuff to enhance reproducibility; move p10k config to dots.

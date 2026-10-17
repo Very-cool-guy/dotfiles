@@ -25,10 +25,15 @@ eval "$(zoxide init zsh)"
 eval "$(rbenv init -)"
 [ -f "/Users/coolguy/.ghcup/env" ] && . "/Users/coolguy/.ghcup/env"
 
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/zsh-autoswitch-virtualenv-master/autoswitch_virtualenv.plugin.zsh
+if [[ -z ${_MEOW-} ]]; then
+    source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ~/zsh-autoswitch-virtualenv-master/autoswitch_virtualenv.plugin.zsh
+    source ~/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+    typeset -g _MEOW=1
+fi
 
+ZVM_CURSOR_STYLE_ENABLED=false
 AUTOSWITCH_SILENT=true
 ZSH_HIGHLIGHT_STYLES[redirection]=fg=cyan

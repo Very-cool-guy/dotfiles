@@ -7,6 +7,8 @@ setopt INTERACTIVE_COMMENTS
 setopt auto_cd
 setopt nobeep
 
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 export MANPAGER='nvim +Man!'
 export HELPDIR="/usr/share/zsh/5.9/help"
 export HOMEBREW_NO_ENV_HINTS=1
