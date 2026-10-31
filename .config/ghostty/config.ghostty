@@ -19,8 +19,7 @@ cursor-opacity = 0.7
 macos-titlebar-style = transparent
 adjust-cell-height = 20%
 window-padding-x = 10,5
-adjust-cursor-height = -20%
-adjust-cursor-thickness = 10%
+adjust-cursor-height = +15%
 
 theme = Catppuccin Latte
 background = #eff1f5
